@@ -1,27 +1,29 @@
 import React from 'react'
-import Home from './Home'
-import UserList from './UserList'
-import UserShow from './UserShow'
-import PostList from './PostList'
+import UsersList from './UsersList'
+import UsersShow from './UserShow'
+import Posts from './Posts'
+import {BrowserRouter, Route, Link} from 'react-router-dom'
 import PostShow from './PostShow'
-import {BrowserRouter,Route,Link } from 'react-router-dom'
 
-
-function App(props) {
+function App (props){
     return(
-         <BrowserRouter>
-            <div>
-             <Link to='/'>Home |</Link>
-             <Link to='/userlist'>User |</Link>
-             <Link to='/postlist'>Post</Link>
-             
-             <Route path='/' component={Home} exact={true} />
-             <Route path='/userlist' component={UserList} exact={true}/>
-             <Route path='/userslist/:userId' component={UserShow} />
-             <Route path='/postlist' component={PostList} exact={true}/>
-             <Route path='/post/:userId' component={PostShow} />
-            </div>
-        </BrowserRouter>
+            <BrowserRouter>
+                    <div>
+
+                        <h1>Hello React App</h1>
+                        
+                        <Link to="/users">Users</Link> -
+                        <Link to="/posts">Posts</Link>                    
+
+                       
+                        <Route path="/users" component={UsersList} exact={true}/>
+                        <Route path="/users/:id" component={UsersShow}/>
+                        <Route path="/posts" component={Posts} exact={true}/>
+                        <Route path="/posts/:id" component={PostShow}/>
+
+                    </div>
+            </BrowserRouter>
+            
     )
 }
 export default App
